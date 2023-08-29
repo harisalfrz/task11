@@ -2,6 +2,9 @@ const express = require("express");
 const app = express();
 const PORT = 5000;
 const path = require("path");
+const config = require('./src/config/config.json')
+const { Sequelize, QueryTypes } = require('sequelize')
+const sequelize = new Sequelize(config.development)
 
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "src/views"));
@@ -58,8 +61,16 @@ const contentBlog = [
   
 ];
 
-app.get("/", (req, res) => {
-  res.render("index", { contentBlog });
+app.get("/", async (req, res) => {
+  try {
+    const query = `SELECT id, "projectName", "authorName", "postedAt", "startDate", "endDate", description, "inputNodejs", "inputReactjs", "inputVuejs", "inputJavascript", "inputImg", "createdAt", "updatedAt"
+    FROM public.projects;`
+    let object = await sequelize.query(query,{type:QueryTypes.SELECT})
+    console.log (object)
+    res.render("index", { contentBlog:object });
+  } catch (error) {
+    console.log (error)
+  }
 });
 
 app.get("/form-blog", (req, res) => {
