@@ -15,20 +15,6 @@ app.use(express.urlencoded({ extended: false }));
 
 const contentBlog = [
   {
-    projectName: "Vue JS",
-    authorName: "Haris Alfariz",
-    postedAt: getFullTime(new Date()),
-    startDate: "2023-06-01",
-    endDate: "2023-08-20",
-    description:
-      "Vue.js adalah framework JavaScript yang bisa digunakan untuk mengembangkan aplikasi. Biasanya, framework ini digunakan untuk dua hal, yaitu membangun User Interface (UI) dan Single Page Application (SPA). Bisa dibilang, Vue.js adalah salah satu framework yang cukup populer.",
-    inputNodejs: "",
-    inputReactjs: "",
-    inputVuejs: "on",
-    inputJavascript: "",
-    inputImg: "/images/vuejs.jpg",
-  },
-  {
     projectName: "Keyboard Mechanical",
     authorName: "Haris Alfariz",
     postedAt: getFullTime(new Date()),
@@ -36,30 +22,14 @@ const contentBlog = [
     endDate: "2023-08-08",
     description:
       "  Keyboard mechanical adalah keyboard yang awet, berkualitas, dan nyaman digunakan sehingga cocok untuk bekerja atau bermain game.",
-    inputNodejs: "on",
+    inputNodejs: "",
     inputReactjs: "on",
     inputVuejs: "on",
     inputJavascript: "on",
     inputImg:
       "/images/keyboard-mechanical.jpg",
   },
-  {
-    projectName: "Type Script",
-    authorName: "Haris Alfariz",
-    postedAt: getFullTime(new Date()),
-    startDate: "2022-05-01",
-    endDate: "2023-08-20",
-    description:
-      "TypeScript adalah bahasa pemrograman open source yang dibangun di atas JavaScript.",
-    inputNodejs: "on",
-    inputReactjs: "on",
-    inputVuejs: "",
-    inputJavascript: "on",
-    inputImg:
-      "/images/typescript-icon-512x512-we5ze0xe.png",
-  },
-  
-];
+  ];
 
 app.get("/", async (req, res) => {
   try {
